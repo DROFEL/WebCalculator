@@ -1,0 +1,32 @@
+{
+  "name": "webcalculator",
+  "version": "1.0.0",
+  "description": "Web calculator with parser",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "mocha || true",
+    "build": "grunt uglify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DROFEL/WebCalculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DROFEL/WebCalculator/issues"
+  },
+  "homepage": "https://github.com/DROFEL/WebCalculator#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "grunt": "^1.5.3",
+    "grunt-contrib-concat": "^2.1.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-uglify": "^5.2.1",
+    "grunt-mocha": "^1.2.0",
+    "grunt-mocha-test": "^0.13.3",
+    "mocha": "^10.0.0"
+  }
+}
