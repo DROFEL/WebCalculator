@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Document</title>
 </head>
-<body>
 
-    
+<body>
+    <div id="calcbody">
+        <div id="output">
+            <input type="text" id="calcInput" autofocus inputmode="decimal">
+            
+            <text id="result">previous operations</text>
+            
+            
+
+            <div id="holder">
+                
+                <button id="history"><span class="material-symbols-outlined">history</span></button>
+            </div>
+        </div>
+        <div id="history-list">
+
+        </div>
+        <button id="clear" class='colored'>C</button>
+        <button id="sign" class='colored'>+/-</button>
+        <button onclick='addToCalcBuffer("%")' id="percentage" class='colored'>%</button>
+        <button onclick='addToCalcBuffer("/")' id="divide">/</button>
+        <button onclick='addToCalcBuffer("7")' id="7" class='colored'>7</button>
+        <button onclick='addToCalcBuffer("8")' id="8" class='colored'>8</button>
+        <button onclick='addToCalcBuffer("9")' id="9" class='colored'>9</button>
+        <button onclick='addToCalcBuffer("*")' id="mult">*</button>
+        <button onclick='addToCalcBuffer("4")' id="4" class='colored'>4</button>
+        <button onclick='addToCalcBuffer("5")' id="5" class='colored'>5</button>
+        <button onclick='addToCalcBuffer("6")' id="6" class='colored'>6</button>
+        <button onclick='addToCalcBuffer("-")' id="sub">-</button>
+        <button onclick='addToCalcBuffer("1")' id="1" class='colored'>1</button>
+        <button onclick='addToCalcBuffer("2")' id="2" class='colored'>2</button>
+        <button onclick='addToCalcBuffer("3")' id="3" class='colored'>3</button>
+        <button onclick='addToCalcBuffer("+")' id="add">+</button>
+        <button onclick='addToCalcBuffer("0")' id="zero" class='colored'>0</button>
+        <button id="eq" class='colored'>=</button>
+        <button onclick='addToCalcBuffer(".")' id="dot">.</button>
+    </div>
+
+
+    <script src="app.js"></script>
 </body>
+
 </html>
