@@ -17,9 +17,6 @@
             <input type="text" id="calcInput" autofocus inputmode="decimal">
             
             <text id="result">previous operations</text>
-            
-            
-
             <div id="holder">
                 
                 <button id="history"><span class="material-symbols-outlined">history</span></button>
@@ -28,8 +25,8 @@
         <div id="history-list">
 
         </div>
-        <button id="clear" class='colored'>C</button>
-        <button id="sign" class='colored'>+/-</button>
+        <button onclick='clear()' id="clear" class='colored'>C</button>
+        <button onclick='clear()' id="sign" class='colored'>+/-</button>
         <button onclick='addToCalcBuffer("%")' id="percentage" class='colored'>%</button>
         <button onclick='addToCalcBuffer("/")' id="divide">/</button>
         <button onclick='addToCalcBuffer("7")' id="7" class='colored'>7</button>
@@ -45,11 +42,11 @@
         <button onclick='addToCalcBuffer("3")' id="3" class='colored'>3</button>
         <button onclick='addToCalcBuffer("+")' id="add">+</button>
         <button onclick='addToCalcBuffer("0")' id="zero" class='colored'>0</button>
-        <button id="eq" class='colored'>=</button>
+        <button onclick='calculate()' id="eq" class='colored'>=</button>
         <button onclick='addToCalcBuffer(".")' id="dot">.</button>
     </div>
 
-
+    <script src="calculate.js"></script>
     <script src="app.js"></script>
 </body>
 

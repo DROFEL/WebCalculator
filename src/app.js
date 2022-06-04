@@ -4,7 +4,7 @@ var resultHolder = document.getElementById('result'); //previous result
 
 var bHistoryOpen = false;
 
-resultHolder.innerHTML = '532';
+resultHolder.innerHTML = '';
 
 inputField.addEventListener('input', () => {
     expressionBuffer = inputField.value;
@@ -23,8 +23,20 @@ function openHistory (){
 
 }
 
-function calculate(input){
-    let output;
+function calculate(){
+    let input = inputField.value;
+    let output = eval(input);
 
-    resultHolder.innerHTML = output;
+
+
+    inputField.value = output;
+    expressionBuffer = '';
+}
+
+function clear(){
+    resultHolder.innerHTML = '';
+    inputField.value = ' 1';
+    expressionBuffer = '';
+
+    console.log(1);
 }
