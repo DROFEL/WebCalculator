@@ -98,10 +98,6 @@ function tokenize(value) {
     return tokens;
 }
 
-console.log(eval('1'));
-
-
-
 function eval(value) {
 
     console.log("Evaluating " + value);
