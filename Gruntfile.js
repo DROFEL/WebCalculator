@@ -88,4 +88,5 @@ module.exports = function(grunt) {
     grunt.registerTask('grunt-sass', ['sass']);
 
     grunt.registerTask('build', ['grunt-contrib-jshint', 'mocha', 'concat', 'grunt-contrib-uglify', 'sass', 'grunt-contrib-cssmin']);
+    grunt.registerTask('sass', ['sass']);
 };

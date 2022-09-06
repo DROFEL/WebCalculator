@@ -1,5 +1,5 @@
 const doubleNums = /[0-9]|\./;
-const operands = /[-+/*]/;
+const operands = /[-+/*^]/;
 
 const UNEXPECTED_SYMBOL = -1
 const DECIMAL_ERROR = -2;
@@ -11,7 +11,14 @@ class Token {
     number = 0;
     operand = '';
 
-    constructor(value) {
+    //operation weight:
+    // weight 3: pow, square, sin, cos, exp
+    // weight 2: mult, div
+    // weight 1: addition, subtraction
+    // weight 0: number
+    priority = 0;
+
+    constructor(value, priority) {
 
         if (value.match(doubleNums)) {
             this.bIsnumber = true;
@@ -20,6 +27,16 @@ class Token {
             this.bIsnumber = false;
             this.operand = value;
         }
+
+        this.priority = priority;
+    };
+
+    constructor(value) {
+
+        this.bIsnumber = true;
+        this.number = parseFloat(value);
+
+        this.priority = 0;
     };
 
     getValue() {
@@ -88,8 +105,20 @@ function tokenize(value) {
 
             tokens.push(new Token(result));
         } else if (value.charAt(i).match(operands)) {
-            tokens.push(new Token(value.charAt(i)))
-        } else {
+
+            priority = 1;
+
+            if(value.charAt(i) == '*' || value.charAt(i) == '/')
+                priority = 2;
+            
+            tokens.push(new Token(value.charAt(i), priority))
+
+        }else if (value.charAt(i) == 'e') {
+            
+            tokens.push(new Token(Math.exp(1)))
+
+        }
+        else {
             return UNEXPECTED_SYMBOL;
         }
     }
@@ -110,36 +139,51 @@ function eval(value) {
         return parserError(tokens)
 
     for (let i = 0; i < tokens.length - 1; i++) {
-        if (tokens[i].bIsnumber == tokens[i + 1].bIsnumber)
+        if (tokens.at(i).bIsnumber == tokens.at(i+1).bIsnumber)
             return "Two operands in a row";
     }
 
-    for (let i = 0; i < tokens.length - 2; i += 2) {
-        num1 = tokens[i].getValue();
-        operand = tokens[i + 1].getValue();
-        num2 = tokens[i + 2].getValue();
 
-        operationResult = 0;
-        switch (operand) {
-            case '+':
-                operationResult = num1 + num2;
-                break;
-            case '-':
-                operationResult = num1 - num2;
-                break;
-            case '*':
-                operationResult = num1 * num2;
-                break;
-            case '/':
-                operationResult = num1 / num2;
-                break;
+    
+    for(let op = 3; op > 0; op--){
+        for (let i = 0; i < tokens.length - 2; i += 2) {
+
+            if(tokens.at(i).bIsnumber)
+                continue;
+    
+
+            operationResult = 0;
+
+
+            switch (operand) {
+                case '*':
+                    operationResult = num1 * num2;
+                    break;
+                case '/':
+                    operationResult = num1 / num2;
+                    break;
+
+            }
+
+            switch (operand) {
+                case '+':
+                    operationResult = num1 + num2;
+                    break;
+                case '-':
+                    operationResult = num1 - num2;
+                    break;
+            }
+
+            
+    
+            tokens.at(i+2) = new Token(operationResult.toString());
         }
-
-        tokens[i+2] = new Token(operationResult.toString());
     }
 
-    return tokens[tokens.length-1].getValue().toString();
+    return tokens.at(tokens.length-1).getValue().toString();
 }
+
+
 
 function parserError(e) {
 

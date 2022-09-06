@@ -18,6 +18,43 @@ body{
 }
 // #4e4e4e #858585 #9e9e9e
 
+#history-list{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+
+    margin-right: 0;
+    background-color: white;
+
+
+    align-self: center;
+    margin-right: 34vw;
+    width: 17vw;
+    height: 0vh;
+
+    border-radius: 2em 0em 0em 2em;
+    word-break: break-word;
+    overflow-y: scroll;
+
+    z-index: 1;
+
+    transition: 0.25s;
+
+    .history-expression{
+        border: none;
+        color: gray;
+        font-size: large;
+        background-color: white;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+}
+
+.listOpen{
+    transition: 0.25s;
+    height: 50vh !important;
+}
+
 #calcbody {
 
     margin: auto;
@@ -33,16 +70,7 @@ body{
 
     box-shadow: 0.1em 0.1em 2em;
 
-    
-
-    #history-list{
-        position:absolute;
-
-        margin-top: 40%;
-
-        word-break: break-word;
-        overflow-y: scroll;
-    }
+    transition: 0.25s;
 
     #output{
         color: gray;
@@ -126,7 +154,7 @@ body{
     .colored {
         color: white;
 
-        background-image: linear-gradient(16deg, rgb(59 130 58) 0%, rgb(117, 216, 86) 100%);
+        background-image: linear-gradient(16deg, rgb(59, 130, 58) 0%, rgb(117, 216, 86) 100%);
         background-size: 17vw 50vh;
         background-position: center;
         background-attachment: fixed;
@@ -150,4 +178,13 @@ body{
     }
 
     #zero { grid-column: 1/3}
+}
+
+.show{
+    display:block !important;
+}
+
+.leftNoRadius{
+    border-radius: 0em 2em 2em 0em !important;
+    transition: 0.5s;
 }

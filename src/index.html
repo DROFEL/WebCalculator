@@ -12,18 +12,18 @@
 </head>
 
 <body>
+    <div id="history-list">
+        
+    </div>
     <div id="calcbody">
+        
         <div id="output">
             <input type="text" id="calcInput" autofocus inputmode="decimal">
             
-            <text id="result">previous operations</text>
+            <div id="result">previous operations</div>
             <div id="holder">
-                
-                <button id="history"><span class="material-symbols-outlined">history</span></button>
+                <button id="history" onclick="openHistroy()"><span class="material-symbols-outlined">history</span></button>
             </div>
-        </div>
-        <div id="history-list">
-
         </div>
         <button onclick='clean()' id="clear" class='colored'>C</button>
         <button onclick='addToCalcBuffer("-")' id="sign" class='colored'>+/-</button>
