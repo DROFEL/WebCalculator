@@ -7,7 +7,7 @@
   "scripts": {
     "test": "grunt mocha || true",
     "testt": "mocha",
-    "build": "grunt build",
+    "build": "node build.js grunt build",
     "scss": "sass ./src/styles.scss ./src/style.css",
     "scss-w": "sass -w ./src/styles.scss ./src/style.css"
   },
